@@ -11,6 +11,7 @@ public class Agent : MonoBehaviour
     [SerializeField] private Health health = null;
     [SerializeField] private TMP_Text nameText = null;
     [SerializeField] private float movementSpeed = 5.0f;
+    
 
     private string agentName = "Unnamed";
     public static event Action<Agent> OnAgentSpawned;

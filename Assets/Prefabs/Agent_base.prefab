@@ -315,7 +315,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 921f93d9f2656d34fae0e8905ab95071, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -551,9 +551,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b5efdd959f37f4cac9d419c6e4e785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorPalette:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
   maxHealth: 3
   slider: {fileID: 2246756672108452444}
   healthTextDisplay: {fileID: 2973128763497790996}
+  renderers:
+  - {fileID: 4008673248606243120}
+  - {fileID: 7688995005364018356}
 --- !u!1 &4008673248606243118
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +620,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 921f93d9f2656d34fae0e8905ab95071, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
