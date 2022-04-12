@@ -30,12 +30,12 @@ public class AgentManager : MonoBehaviour
     private void HandleOnAgentSpawned(Agent agent)
     {
         spawnedAgents.Add(agent);
-        Debug.Log($"Agent {spawnedAgents.Count} spawned\n");
     }
 
     private void HandleOnAgentDespawned(Agent agent)
     {
         spawnedAgents.Remove(agent);
+        Debug.Log($"Agent removed.. {spawnedAgents.Count}");
     }
 
     private void Start() {

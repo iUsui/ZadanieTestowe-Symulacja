@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 512872298}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 832786611}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 1051886610}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -993,8 +993,8 @@ MonoBehaviour:
   agentPrefab: {fileID: 5875623790909849011, guid: 5ceaab3f26d2d4d47b2f5a24081b3398, type: 3}
   bottomLeftCornerPoint: {fileID: 1304799093}
   topRightCornerPoint: {fileID: 1157721375}
-  minTimeToSpawn: 1
-  maxTimeToSpawn: 2
+  minTimeToSpawn: 0.2
+  maxTimeToSpawn: 1
   maxAgentsOnTheField: 30
 --- !u!1 &1922807343
 GameObject:
@@ -1074,7 +1074,7 @@ GameObject:
   - component: {fileID: 2094877567}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
