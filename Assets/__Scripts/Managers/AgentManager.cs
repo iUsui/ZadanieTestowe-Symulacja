@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AgentManager : MonoBehaviour
 {
+    public static AgentManager instance;
     [SerializeField] private GameObject agentPrefab = null;
     [Header("Spawn points")]
     [SerializeField] private Transform bottomLeftCornerPoint = null;
@@ -17,7 +18,8 @@ public class AgentManager : MonoBehaviour
     [SerializeField] private int maxAgentsOnTheField = 30;
     private List<Agent> spawnedAgents = new List<Agent>();
     private bool canSpawn = true;
-    
+    private int spawnedAgentCounter = 0;
+
     private void OnEnable() {
         Agent.OnAgentSpawned += HandleOnAgentSpawned;
         Agent.OnAgentDespawned += HandleOnAgentDespawned;
@@ -27,15 +29,17 @@ public class AgentManager : MonoBehaviour
         Agent.OnAgentDespawned -= HandleOnAgentDespawned;
     }
 
-    private void HandleOnAgentSpawned(Agent agent)
-    {
+    private void HandleOnAgentSpawned(Agent agent) {
+        spawnedAgentCounter++;
+        agent.SetAgentName($"Agent {spawnedAgentCounter}");
         spawnedAgents.Add(agent);
     }
-
-    private void HandleOnAgentDespawned(Agent agent)
-    {
+    private void HandleOnAgentDespawned(Agent agent) {
         spawnedAgents.Remove(agent);
-        Debug.Log($"Agent removed.. {spawnedAgents.Count}");
+    }
+
+    private void Awake() {
+        instance = this;
     }
 
     private void Start() {

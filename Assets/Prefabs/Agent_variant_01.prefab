@@ -7,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7640413562991867859, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4008673248455369985, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008673248455369985, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008673248455369985, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4008673248455369985, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,7 +65,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008673248455370045, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
       propertyPath: m_Name
-      value: Agent_base
+      value: Agent_variant_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4008673248455370047, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620980873000883811, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}
+      propertyPath: selectableLayerMask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f27897e8e657cbb4fbaaebb1462610d4, type: 3}

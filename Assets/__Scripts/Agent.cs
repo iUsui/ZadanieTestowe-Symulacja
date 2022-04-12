@@ -1,16 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Agent : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb = null;
     [SerializeField] private Health health = null;
+    [SerializeField] private TMP_Text nameText = null;
     [SerializeField] private float movementSpeed = 5.0f;
 
+    private string agentName = "Unnamed";
     public static event Action<Agent> OnAgentSpawned;
     public static event Action<Agent> OnAgentDespawned;
+    [SerializeField] private UnityEvent OnSelected;
+    [SerializeField] private UnityEvent OnDeselected;
 
     private void OnEnable() {
         health.OnDie += HandleOnDie;
@@ -19,11 +25,18 @@ public class Agent : MonoBehaviour
         health.OnDie -= HandleOnDie;
     }
 
-    private void Start() {
-        OnAgentSpawned?.Invoke(this);
-        ChangeRotation();
+    public string GetAgentName() {
+        return agentName;
+    }
+    public void SetAgentName(string newAgentName) {
+        agentName = newAgentName;
     }
 
+    private void Start() {
+        OnAgentSpawned?.Invoke(this);
+        nameText.text = agentName;
+        ChangeRotation();
+    }
     private void OnDestroy() {
         OnAgentDespawned?.Invoke(this);
     }
@@ -59,5 +72,12 @@ public class Agent : MonoBehaviour
     {
         Debug.Log($"{gameObject.name} died..");
         Destroy(gameObject);
+    }
+
+    public void Select() {
+        OnSelected?.Invoke();
+    }
+    public void Deselect() {
+        OnDeselected?.Invoke();
     }
 }
