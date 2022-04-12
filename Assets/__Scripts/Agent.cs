@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private float movementSpeed = 5.0f;
+
+    public static event Action<Agent> OnAgentSpawned;
+    public static event Action<Agent> OnAgentDespawned;
+
+    private void Start() {
+        OnAgentSpawned?.Invoke(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnDestroy() {
+        OnAgentDespawned?.Invoke(this);
     }
 }
