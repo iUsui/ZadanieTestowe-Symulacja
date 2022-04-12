@@ -80,4 +80,10 @@ public class Agent : MonoBehaviour
     public void Deselect() {
         OnDeselected?.Invoke();
     }
+
+    private void Update() {
+        if (rb.velocity.magnitude < movementSpeed) {
+            rb.velocity = transform.forward * movementSpeed;
+        }
+    }
 }
