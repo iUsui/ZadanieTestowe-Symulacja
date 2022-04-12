@@ -52,7 +52,7 @@ public class AgentManager : MonoBehaviour
     private void Update() {
         if (canSpawn && spawnedAgents.Count < maxAgentsOnTheField) {
             StartCoroutine(SetCanSpawn());
-            float borderOffset = 3.0f;
+            float borderOffset = 5.0f;
             Vector3 bottomLeftPoint = bottomLeftCornerPoint.position;
             Vector3 topRightPoint = topRightCornerPoint.position;
             Vector3 spawnPosition = new Vector3(

@@ -946,7 +946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &844143736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2455,9 +2455,9 @@ MonoBehaviour:
   agentPrefab: {fileID: 5875623790909849011, guid: 5ceaab3f26d2d4d47b2f5a24081b3398, type: 3}
   bottomLeftCornerPoint: {fileID: 1304799093}
   topRightCornerPoint: {fileID: 1157721375}
-  minTimeToSpawn: 0.2
-  maxTimeToSpawn: 1
-  maxAgentsOnTheField: 5
+  minTimeToSpawn: 2
+  maxTimeToSpawn: 10
+  maxAgentsOnTheField: 30
 --- !u!1 &1753879741
 GameObject:
   m_ObjectHideFlags: 0
@@ -3538,7 +3538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2141326982
 RectTransform:
   m_ObjectHideFlags: 0
