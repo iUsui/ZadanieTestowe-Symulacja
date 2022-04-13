@@ -38,7 +38,7 @@ public class Agent : MonoBehaviour
     private void Start() {
         OnAgentSpawned?.Invoke(this);
         nameText.text = agentName;
-        ChangeRotation();
+        StartRotation();
     }
     private void OnDestroy() {
         OnAgentDespawned?.Invoke(this);
@@ -51,10 +51,9 @@ public class Agent : MonoBehaviour
     }
 
     private void OnCollisionStay(Collision other) {
-        if ((other.gameObject.CompareTag("Wall") || other.gameObject.TryGetComponent<Health>(out Health enemyHealth)) 
-                && canChangeRotation) {
+        if (other.gameObject.CompareTag("Wall") && canChangeRotation) {
             canChangeRotation = false;
-            ChangeRotation(true);
+            ChangeRotation();
             StartCoroutine(SetCanChangeRotation());
         }
     }
@@ -64,7 +63,7 @@ public class Agent : MonoBehaviour
         canChangeRotation = true;
     }
 
-    private void ChangeRotation() {
+    private void StartRotation() {
         rb.freezeRotation = false;
         Vector3 euler = transform.eulerAngles;
         euler.y = UnityEngine.Random.Range(0f, 360f);
@@ -72,7 +71,7 @@ public class Agent : MonoBehaviour
         rb.freezeRotation = true;
         rb.velocity = transform.forward * movementSpeed;
     }
-    private void ChangeRotation(bool wall) {
+    private void ChangeRotation() {
         rb.freezeRotation = false;
         Vector3 euler = transform.eulerAngles;
         euler.y -= 180f;
