@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class AgentManager : MonoBehaviour
@@ -13,12 +14,17 @@ public class AgentManager : MonoBehaviour
     [Header("Agent spawn frequency")]
     [SerializeField] private float minTimeToSpawn = 2.0f;
     [SerializeField] private float maxTimeToSpawn = 10.0f;
+    [Header("Agent statistics")]
+    [SerializeField] private TMP_Text spawnedAgentsText = null;
+    [SerializeField] private TMP_Text diedAgentsText = null;
+    [SerializeField] private TMP_Text aliveAgentsText = null;
 
     [Header("Other properties")]
     [SerializeField] private int maxAgentsOnTheField = 30;
     private List<Agent> spawnedAgents = new List<Agent>();
     private bool canSpawn = true;
     private int spawnedAgentCounter = 0;
+    private int diedAgentsCounter = 0;
 
     private void OnEnable() {
         Agent.OnAgentSpawned += HandleOnAgentSpawned;
@@ -33,9 +39,14 @@ public class AgentManager : MonoBehaviour
         spawnedAgentCounter++;
         agent.SetAgentName($"Agent {spawnedAgentCounter}");
         spawnedAgents.Add(agent);
+        spawnedAgentsText.text = $"Spawned agents: {spawnedAgentCounter}";
+        aliveAgentsText.text = $"Alive agents: {spawnedAgents.Count}";
     }
     private void HandleOnAgentDespawned(Agent agent) {
+        diedAgentsCounter++;
         spawnedAgents.Remove(agent);
+        diedAgentsText.text = $"Died agents: {diedAgentsCounter}";
+        aliveAgentsText.text = $"Alive agents: {spawnedAgents.Count}";
     }
 
     private void Awake() {
