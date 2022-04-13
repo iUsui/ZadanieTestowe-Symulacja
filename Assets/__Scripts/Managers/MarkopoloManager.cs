@@ -20,15 +20,6 @@ public class MarkopoloManager : MonoBehaviour
     [SerializeField] private TMP_Text displaySpecificInfo = null;
     [SerializeField] private TMP_Text displaySpecificInfoHeader = null;
 
-    // private void Start() {
-    //     for (int i = minNumber; i <= maxNumber; i++) {
-    //         if (i%dividedByMarko == 0 && i%dividedByPolo == 0) { Debug.Log($"{i} - MarkoPolo"); }
-    //         else {
-    //             if (i%dividedByMarko == 0) { Debug.Log($"{i} - Marko"); }
-    //             if (i%dividedByPolo == 0) { Debug.Log($"{i} - Polo"); }
-    //         }
-    //     }
-    // }
     public void ButtonOnDoTheMath() {
         for (int i = minNumber; i <= maxNumber; i++) {
             if (i%dividedByMarko == 0 && i%dividedByPolo == 0) { 
