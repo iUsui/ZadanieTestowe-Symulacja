@@ -19,6 +19,8 @@ public class Agent : MonoBehaviour
     [SerializeField] private UnityEvent OnSelected;
     [SerializeField] private UnityEvent OnDeselected;
 
+    private bool canChangeRotation = true;
+
     private void OnEnable() {
         health.OnDie += HandleOnDie;
     }
@@ -43,13 +45,23 @@ public class Agent : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("Wall")) {
-            ChangeRotation(true);
-            return;
-        }
         if (!other.gameObject.TryGetComponent<Health>(out Health enemyHealth)) { return; }
         ChangeRotation();
         health.TakeDamage(1);
+    }
+
+    private void OnCollisionStay(Collision other) {
+        if ((other.gameObject.CompareTag("Wall") || other.gameObject.TryGetComponent<Health>(out Health enemyHealth)) 
+                && canChangeRotation) {
+            canChangeRotation = false;
+            ChangeRotation(true);
+            StartCoroutine(SetCanChangeRotation());
+        }
+    }
+
+    private IEnumerator SetCanChangeRotation() {
+        yield return new WaitForSeconds(0.5f);
+        canChangeRotation = true;
     }
 
     private void ChangeRotation() {
